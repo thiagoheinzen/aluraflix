@@ -1,0 +1,111 @@
+body {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    background-image: url(./colagem-de-fundo-de-filme_23-2149876009.jpg);
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .page-title {
+    color: #ffffff;
+    margin: 0 0 5px;
+  }
+  
+  .page-subtitle {
+    color: #ffffff;
+    margin-top: 5px;
+  }
+  
+  .page-logo {
+    width: 200px;
+  }
+  
+  .alura-logo {
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  img {
+    max-height: 250px;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
+  }
+  
+  p {
+    color: #ff0000;
+  }
+  
+  #gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  #gallery > div {
+    margin: 10px;
+  }
+  
+  #imageFile {
+    color: #fff
+  }
+  
+  #image-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    padding: 4px 2em 0 1em;
+    border: 5px;
+    border-style: inset;
+    border-radius: 5px;
+  }
+  
+  #image-form input,
+  #image-form button {
+    margin: 5px 0;
+  }
+  
+  #imageLink,
+  #imageTitle,
+  #trailerLink {
+    width: 25%;
+    height: 30px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  #imageLink::placeholder,
+  #imageTitle::placeholder,
+  #trailerLink::placeholder,
+  #notaInput::placeholder {
+    text-align: center;
+  }
+  
+  button {
+    padding: 8px 15px;
+    background: linear-gradient(to right, #ff1212, #822a15);;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #4b8ef5, #4fa3f5);
+    transform: scale(1.1);
+  }
+  
