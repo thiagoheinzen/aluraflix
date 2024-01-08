@@ -9,12 +9,12 @@ function adicionarFilme() {
   const imageTitleInput = document.getElementById('imageTitle');
   const imageFileInput = document.getElementById('imageFile');
   const notaInput = document.getElementById('notaInput');
-  const nota = notaInput.value.trim();
 
   const imageLink = imageLinkInput.value.trim();
   const trailerLink = trailerLinkInput.value.trim();
   const imageTitle = imageTitleInput.value.trim();
   const file = imageFileInput.files[0];
+  const nota = notaInput.value.trim();
 
   // 3. Validação de Entrada:
   if ((imageLink === '' && trailerLink === '' && !file) || (imageLink !== '' && file)) {
@@ -28,42 +28,39 @@ function adicionarFilme() {
       alert('Esta URL já foi adicionada. Por favor, escolha outra.');
       return;
     }
-
-    const newFilm = criarElementoFilme(imageLink, trailerLink, imageTitle, nota);
-
-    listaFilmes.push({
-      imageLink: imageLink,
-      trailerLink: trailerLink,
-      imageTitle: imageTitle,
-      nota: nota,
-      element: newFilm
-    });
-
-    adicionarElementoGaleria(newFilm);
-    limparCamposEntrada(imageLinkInput, trailerLinkInput, imageTitleInput, notaInput, imageFileInput);
-    urlsAdicionadas.add(imageLink);
   }
 
-  if (file) {
-    // Criação de URL temporária para o arquivo carregado.
-    const imageLink = URL.createObjectURL(file);
-    const newFilm = criarElementoFilme(imageLink, trailerLink, imageTitle, nota);
+  // 5. Validação da Nota:
+  if (!validarNota(nota)) {
+    alert('A nota deve ser um valor inteiro entre 0 e 10.');
+    return;
+  }
 
-    listaFilmes.push({
-      imageLink: imageLink,
-      trailerLink: trailerLink,
-      imageTitle: imageTitle,
-      nota: nota,
-      element: newFilm
-    });
+  const newFilm = criarElementoFilme(imageLink, trailerLink, imageTitle, nota);
 
-    adicionarElementoGaleria(newFilm);
-    limparCamposEntrada(imageLinkInput, trailerLinkInput, imageTitleInput, notaInput, imageFileInput);
+  listaFilmes.push({
+    imageLink: imageLink,
+    trailerLink: trailerLink,
+    imageTitle: imageTitle,
+    nota: nota,
+    element: newFilm
+  });
+
+  adicionarElementoGaleria(newFilm);
+  limparCamposEntrada(imageLinkInput, trailerLinkInput, imageTitleInput, notaInput, imageFileInput);
+
+  if (imageLink !== '') {
     urlsAdicionadas.add(imageLink);
   }
 }
 
-// 5. Criação de Elemento Filme:
+// Função para validar a nota:
+function validarNota(nota) {
+  const valorNota = parseInt(nota, 10);
+  return !isNaN(valorNota) && valorNota >= 0 && valorNota <= 10;
+}
+
+// 6. Criação de Elemento Filme:
 function criarElementoFilme(imageLink, trailerLink, imageTitle, nota) {
   const newFilm = document.createElement('div');
   newFilm.innerHTML = `
@@ -85,13 +82,13 @@ function criarElementoFilme(imageLink, trailerLink, imageTitle, nota) {
   return newFilm;
 }
 
-// 6. Adição de Elemento à Galeria:
+// 7. Adição de Elemento à Galeria:
 function adicionarElementoGaleria(element) {
   const gallery = document.getElementById('gallery');
   gallery.appendChild(element);
 }
 
-// 7. Remoção de Elemento:
+// 8. Remoção de Elemento:
 function removerElemento(element) {
   const index = listaFilmes.findIndex(film => film.element === element);
   listaFilmes.splice(index, 1);
@@ -100,7 +97,7 @@ function removerElemento(element) {
   urlsAdicionadas.delete(imageLink);
 }
 
-// 8. Limpeza de Campos de Entrada:
+// 9. Limpeza de Campos de Entrada:
 function limparCamposEntrada(imageLinkInput, trailerLinkInput, imageTitleInput, notaInput, imageFileInput) {
   imageLinkInput.value = '';
   trailerLinkInput.value = '';

@@ -14,15 +14,17 @@
     <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
   </a>
 
-  <div id="image-form">
-    <p>Crie uma lista com seus filmes favoritos!<br>Insira uma URL ou carregue a imagem direto de seu dispositivo</p>
-    <input type="text" id="imageLink" placeholder="Insira a URL da imagem">
-    <input type="file" id="imageFile" accept="image/*">
-    <input type="text" id="imageTitle" placeholder="Insira um título">
-    <input type="text" id="trailerLink" placeholder="Insira o link do trailer">
-    <input type="number" id="notaInput" placeholder="Insira uma nota">
-    <button onclick="adicionarFilme()">Publicar</button>
-  </div>
+  <p>Crie uma lista com seus filmes favoritos!<br>Insira uma URL ou carregue a imagem direto de seu dispositivo</p>
+
+  
+    <div id="image-form">
+      <input type="text" id="imageLink" placeholder="Insira a URL da imagem">
+      <input type="file" id="imageFile" accept="image/*">
+      <input type="text" id="imageTitle" placeholder="Insira um título">
+      <input type="text" id="trailerLink" placeholder="Insira o link do trailer">
+      <input type="number" id="notaInput" placeholder="Insira uma nota de 0 a 10">
+      <button onclick="adicionarFilme()">Publicar</button>
+    </div>
 
   <div id="gallery" class="image-gallery"></div>
 

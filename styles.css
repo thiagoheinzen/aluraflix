@@ -1,7 +1,7 @@
 body {
     font-family: "Roboto Mono", monospace;
     text-align: center;
-    background-image: url(./colagem-de-fundo-de-filme_23-2149876009.jpg);
+    background-image: url(./img/colagem-de-fundo-de-filme_23-2149876009.jpg);
     background-color: #000000;
     background-size: cover;
     background-position: center top;
@@ -61,17 +61,26 @@ body {
     color: #fff
   }
   
+  .wrapper {
+    width: 640px;
+    height: 246.4px;
+    background: blue;
+    color: #fff;
+  }
+
   #image-form {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
   }
 
   input {
     padding: 4px 2em 0 1em;
-    border: 5px;
+    border: 1px;
     border-style: inset;
     border-radius: 5px;
+    background: transparent;
   }
   
   #image-form input,
@@ -81,11 +90,13 @@ body {
   
   #imageLink,
   #imageTitle,
-  #trailerLink {
-    width: 25%;
+  #trailerLink,
+  #notaInput {
+    width: 20%;
     height: 30px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: #fff;
   }
   
   #imageLink::placeholder,
@@ -93,6 +104,7 @@ body {
   #trailerLink::placeholder,
   #notaInput::placeholder {
     text-align: center;
+    color: #fff;
   }
   
   button {
